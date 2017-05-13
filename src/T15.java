@@ -13,18 +13,21 @@ public class T15 {
 
         public class Solution {
             public ListNode ReverseList(ListNode head) {
-                if(head == null)
-                {
-                    return null;
-                }
-                ListNode reHead = null;
-                while(head.next != null)
-                {
-                    reHead = head.next;
-                    head = head.next;
-
-                }
-                return null;
+              ListNode ReHead= null;
+              ListNode pNode = head;
+              ListNode pPre = null;
+              while (pNode != null)
+              {
+                  ListNode pNext = pNode.next;
+                  if (pNext == null)
+                  {
+                      ReHead = pNode;
+                  }
+                  pNode.next = pPre;
+                  pPre = pNode;
+                  pNode = pNext;
+              }
+              return ReHead;
             }
         }
     }
