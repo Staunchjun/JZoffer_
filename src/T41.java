@@ -9,6 +9,25 @@ import java.util.ArrayList;
  */
 public class T41 {
     public ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
-        return null;
+       ArrayList<ArrayList<Integer>> lists = new ArrayList<>();
+       if (sum<3)return lists;
+       int s = (int)Math.sqrt(2*sum);
+       for (int i =s;i>=2;i--)
+       {
+           if (2*sum%i == 0)
+           {
+               int d = 2*sum/i;
+               if (d%2==0&&i%2!=0||d%2!=0&&i%2==0)
+               {
+                   int al = (d-i+1)/2;
+                   int an = (d+i-1)/2;
+                   ArrayList<Integer> temp = new ArrayList<>();
+                   for (int j= al;j<=an;j++)
+                       temp.add(j);
+                   lists.add(temp);
+               }
+           }
+       }
+       return lists;
     }
 }
