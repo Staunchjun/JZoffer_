@@ -11,6 +11,24 @@
  */
 public class T45 {
     public int LastRemaining_Solution(int n, int m) {
-        return 0;
+        if (n<1||m<1)return -1;
+        int[] array = new int[n];
+        int i = -1;int step = 0;int count = n;
+        while (count>0)
+        {
+            i++;
+            if (i>=n) i=0;//i 表示已经轮到了第几个小朋友
+            //step 表示逼近m的步數
+            if (array[i] == -1)continue;//跳過已經喊了的孩子
+            step++;
+            if (step == m)
+            {
+                array[i] = -1;
+                step = 0;
+                count--;
+                // 喊到的孩子去除掉，至-1
+            }
+        }
+        return i;
     }
 }
