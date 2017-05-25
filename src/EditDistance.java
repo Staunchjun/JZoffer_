@@ -3,9 +3,10 @@
  */
 public class EditDistance {
     public static void main(String[] args) {
-        String a = "1,236,58,9,777";
+//        Compare two trajectories of customer Input format: "1,236,58,9,777,53465,231,12345," Each number denotes a node ID.
+        String a = "1,236,58,9,777,53465,231,12345,";
         String[] as = a.split(",");
-        String b = "1,236,57,100,9,877,777";
+        String b = "1,236,57,9,777,231,12345,53465,";
         String[] bs = b.split(",");
         System.out.println("similarity:"+(1-(minDistance(as, bs)*1.0/Math.max(as.length,bs.length))));
         System.out.println("distance:"+(minDistance(as, bs)));
