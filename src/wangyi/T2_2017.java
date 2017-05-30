@@ -1,6 +1,5 @@
 package wangyi;
 
-import java.util.Scanner;
 
 /**
  * Created by Administrator on 2017/5/30.
@@ -10,12 +9,24 @@ import java.util.Scanner;
  例如：半径的平方如果为25
  优雅的点就有：(+/-3, +/-4), (+/-4, +/-3), (0, +/-5) (+/-5, 0)，一共12个点。
  */
+import java.util.Scanner;
 public class T2_2017 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
-            int K = scanner.nextInt();
-            int M = scanner.nextInt();
+            int RR = scanner.nextInt();
+            double R =  Math.sqrt(RR);
+            //在第一象限上
+            int count = 0;
+            for (int i = 0; i<R;i++)
+            {
+                double j = Math.sqrt(RR - i*i);
+                if (Math.abs(j)-Math.round(j) == 0)
+                {
+                    count++;
+                }
+            }
+            System.out.print(count*4);
         }
     }
 }
