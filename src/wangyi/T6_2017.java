@@ -1,6 +1,5 @@
 package wangyi;
 
-import java.util.Scanner;
 
 /**
  * Created by Administrator on 2017/5/30.
@@ -14,6 +13,7 @@ import java.util.Scanner;
 
  对于偶数的一直除2得到的奇数就是了。对于奇数的就是自己。
  */
+import java.util.Scanner;
 public class T6_2017 {
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);

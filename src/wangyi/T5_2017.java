@@ -1,6 +1,5 @@
 package wangyi;
 
-import java.util.Scanner;
 
 /**
  * Created by Administrator on 2017/5/30.
@@ -9,6 +8,7 @@ import java.util.Scanner;
  如果 X = 100，则rev(X) = 1.
  现在给出整数x和y,要求rev(rev(x) + rev(y))为多少？
  */
+import java.util.Scanner;
 public class T5_2017 {
 
     public static void main(String[] args) {

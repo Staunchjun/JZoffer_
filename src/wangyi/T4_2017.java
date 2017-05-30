@@ -1,6 +1,5 @@
 package wangyi;
 
-import java.util.Scanner;
 
 /**
  * Created by Administrator on 2017/5/30.
@@ -10,6 +9,7 @@ import java.util.Scanner;
  AABBCCAABB 不存在一个长度为3的连续子串包含'A','B','C',所以是暗黑的字符串
  你的任务就是计算出长度为n的字符串(只包含'A'、'B'和'C')，有多少个是暗黑的字符串。
  */
+import java.util.Scanner;
 public class T4_2017 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
