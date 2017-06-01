@@ -29,7 +29,7 @@ public class EditDistance {
         for (int i = 1; i <= word1.length; i++) {
             for (int j = 1; j <= word2.length; j++) {
                 int cost;
-                if (word1[i - 1].endsWith(word2[j - 1])) {
+                if (word1[i - 1].equals(word2[j - 1])) {
                      cost = 0;
                 } else {
                      cost = 1;
