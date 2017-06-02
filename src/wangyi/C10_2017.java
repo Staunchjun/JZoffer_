@@ -1,53 +1,53 @@
 package wangyi;
-// Created by Administrator on 2017/6/1.
-// 常规的表达式求值，我们都会根据计算的优先级来计算。比如*/的优先级就高于+-。
-// 但是小易所生活的世界的表达式规则很简单，
-// 从左往右依次计算即可，而且小易所在的世界没有除法，
-// 意味着表达式中没有/，只有(+, - 和 *)。现在给出一个表达式，
-// 需要你帮忙计算出小易所在的世界这个表达式的值为多少
-import java.util.Scanner;
+/*小易参与了一个记单词的小游戏。游戏开始系统提供了m个不同的单词，小易记忆一段时间之后需要在纸上写出他记住的单词。小易一共写出了n个他能记住的单词，如果小易写出的单词是在系统提供的，将获得这个单词长度的平方的分数。注意小易写出的单词可能重复，但是对于每个正确的单词只能计分一次。 
+输入描述:
+
+输入数据包括三行：
+
+第一行为两个整数n(1 ≤ n ≤ 50)和m(1 ≤ m ≤ 50)。以空格分隔
+
+第二行为n个字符串，表示小易能记住的单词，以空格分隔，每个单词的长度小于等于50。
+
+第三行为m个字符串，系统提供的单词，以空格分隔，每个单词的长度小于等于50。
+
+
+输出描述:
+
+输出一个整数表示小易能获得的分数
+
+输入例子:
+
+3 4
+apple orange strawberry
+strawberry orange grapefruit watermelon
+
+输出例子:
+
+136
+*/
+import java.util.*;
 public class C10_2017 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while (sc.hasNext())
-        {
-            String str = sc.nextLine();
-            int res = Compute(str);
-            System.out.print(res) ;
-        }
-        sc.close();
-    }
+            int score = 0;
+            int n = sc.nextInt();
+            int m = sc.nextInt();
+            List<String> mWords = new ArrayList<String>();
+            List<String> nWordsR = new ArrayList<String>();
+            Set<String> nWords = new HashSet<String>();
+            for (int i = 0; i < n; i++) {
+                nWordsR.add(sc.next());
+            }
+            for (int i = 0; i < m; i++) {
+                String str = sc.next();
+                if (nWordsR.contains(str))
+                    if (!nWords.contains(str)) {
+                        nWords.add(str);
+                        char[] chars = str.toCharArray();
+                        score += chars.length * chars.length;
+                    }
+            }
 
-    private static int Compute(String str) {
-        char[] strs = str.toCharArray();
-        int res = 0;
-        int cur = 0;
-        char flag = '+';
-        for (int i = 0; i < strs.length; i++) {
-            if ((strs[i]>='0'&& strs[i]<='9')&& i != strs.length-1)
-            {
-                cur = strs[i] - '0';
-            }
-            else {
-            if (i == strs.length-1)
-            {
-                cur = strs[i] - '0';
-            }
-            if (flag == '+')
-            {
-                res += cur;
-            }
-            if (flag == '-')
-            {
-                res -= cur;
-            }
-            if (flag == '*')
-            {
-                res *= cur;
-            }
-            flag = strs[i];
-            }
+            System.out.println(score);
         }
-        return res;
-    }
 }
