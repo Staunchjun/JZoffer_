@@ -27,7 +27,12 @@ public class PG_4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
-            System.out.println(0);
+            double sum = 0;
+            int n = scanner.nextInt();
+            for (double i = 0; i < n; i++) {
+                sum = sum + 1.0/(i+1);
+            }
+            System.out.println(String.format("%.4f", sum));
         }
     }
 }
