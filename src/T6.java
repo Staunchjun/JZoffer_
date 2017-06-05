@@ -7,7 +7,7 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
+class T6 {
     public static class TreeNode {
         int val;
         TreeNode left;
