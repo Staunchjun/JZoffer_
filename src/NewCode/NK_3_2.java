@@ -22,9 +22,10 @@ public class NK_3_2 {
 
     public static void main(String[] args)
     {
-        Scanner scanner = new Scanner(System.in);
-        String nn = scanner.nextLine();
-        String yy = scanner.nextLine();
+//        Scanner scanner = new Scanner(System.in);
+//        String nn = scanner.nextLine();
+//        String yy = scanner.nextLine();
+//        Kmeans k=new Kmeans(2);
 
     }
 }
