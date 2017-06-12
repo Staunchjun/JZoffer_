@@ -16,10 +16,24 @@ import java.util.Scanner;
  */
 public class TX1_2016 {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        while (in.hasNext()) {
-            String str = in.nextLine();
-//            System.out.println(str.length()-getResult(str));
+        int n = 3;
+        String[] resStrs = getGray(n);
+        for (String s:resStrs) {
+            System.out.println(s);
         }
+    }
+    private static String[] getGray(int n) {
+        String[] resStrs = null;
+        if (n == 1)resStrs = new String[]{"0","1"};
+        else {
+            String[] strs = getGray(n - 1);
+            resStrs = new String[2*strs.length];
+            for (int i = 0; i < strs.length; i++) {
+                resStrs[i] = "0"+strs[i];
+                //重点在这里。0-1的转换，这里的结尾相当于1的开始。010-110  10前加0/1
+                resStrs[resStrs.length-1-i] = "1"+strs[i];
+            }
+        }
+        return resStrs;
     }
 }

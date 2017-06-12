@@ -1,5 +1,6 @@
 package TX;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -20,5 +21,16 @@ public class TX2_2016 {
             String str = in.nextLine();
 //            System.out.println(str.length() - getResult(str));
         }
+    }
+    public int getValue(int[] gifts, int n) {
+        // write code here
+        Arrays.sort(gifts);
+        int a = gifts[n/2];
+        int num = 0;
+        for (int i = 0; i < gifts.length; i++) {
+            if (gifts[i] == a)
+                num++;
+        }
+        return num <= n/2?0:a;
     }
 }
