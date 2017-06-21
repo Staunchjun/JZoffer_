@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode_dp;
 
 import java.util.Arrays;
 
@@ -28,7 +28,7 @@ public class l3 {
         //从右到左
         for (int i = ratings.length - 2; i >= 0; i--) {
             //已经比拿的糖比较多的就不给了
-            if (ratings[i] > ratings[i + 1] && dp[i] < dp[i + 1]) {
+            if (ratings[i] > ratings[i + 1] && dp[i] <= dp[i + 1]) {
                 dp[i] = dp[i + 1] + 1;
             }
         }
