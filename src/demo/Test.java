@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class Test {
     //N types of product
-    static int N = 120;
+    static int N = 160;
 
     public static void main(String[] args) {
         Random random = new Random();
@@ -33,9 +33,9 @@ public class Test {
             shopList[count] = mapping.getKey();
             count++;
             if (count == 10) {break;}}
-        //所有商品随机分配给12个点 1-12
+        //所有商品随机分配给16个点 0-15
         Map<Integer, Set<Integer>> shelf = new HashMap<Integer, Set<Integer>>();
-        for (int i = 1; i <= 12; i++) {
+        for (int i = 0; i < 16; i++) {
             Set<Integer> products = new HashSet<Integer>();
             for (int j = 0; j < 10; j++) {
                 while (true) {
