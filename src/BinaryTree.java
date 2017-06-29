@@ -79,7 +79,8 @@ public class BinaryTree {
         Stack<Node> stack = new Stack<Node>();
         Node node = p;
         while (node != null || stack.size() > 0) {
-            while (node != null) {//压入所有的左节点，压入前访问它。左节点压入完后pop访问右节点。像这样算法时思考规律性的东西在哪。不管哪个节点都要压所节点判断右节点。
+            while (node != null) {//压入所有的左节点，压入前访问它。
+                // 左节点压入完后pop访问右节点。像这样算法时思考规律性的东西在哪。不管哪个节点都要压所节点判断右节点。
                 visit(node);
                 stack.push(node);
                 node = node.getLeft();
