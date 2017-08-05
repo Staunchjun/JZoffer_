@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Created by Staunchjun on 2017/8/1.
  */
-//Main  无序数组 包含 正数 负数 0 求出 3 个数的最大乘积
+//alibaba.cepin  无序数组 包含 正数 负数 0 求出 3 个数的最大乘积
 public class pinduoduo1 {
     public static  void main(String[] args)
     {
