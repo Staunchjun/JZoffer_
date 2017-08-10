@@ -90,7 +90,7 @@
                 3. 调用处执行类y的方法
             
           2. 动态代理
-                1. 将创建新蕾y的过程抽象出了来，改成通用的过程
+                1. 将创建新类y的过程抽象出了来，改成通用的过程
                     1. 要接口->JDK动态代理
                     2. 不要接口->CGLib动态代理
                 2. 将ABC三个方法包装进y的一个新方法中 
@@ -257,4 +257,60 @@
     4. 如果是非j2ee应用直接程序加载.ApplicationContext act = new ClassPathXmlApplicationContext(new String[]{"bean1.xml","bean2.xml"});BeanDefinitionRegistry reg = new DefaultListableBeanFactory();XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(reg);reader.loadBeanDefinitions(new ClassPathResource("bean1.xml"));reader.loadBeanDefinitions(new ClassPathResource("bean2.xml"));BeanFactory bf = (BeanFactory)reg;   
 6. Spring Security的实现，拦截器怎么用，Controller是单例的吗（默认单例）(重要！！！)
 
-7. d
+7. MyBatis与JDBC
+
+        JDBC是Java提供的一个操作数据库的API； 
+        MyBatis是一个支持普通SQL查询，存储过程和高级映射的优秀持久层框架。
+        MyBatis消除了几乎所有的JDBC代码和参数的手工设置以及对结果集的检索封装。
+        MyBatis可以使用简单的XML或注解用于配置和原始映射，将接口和Java的POJO（Plain Old Java Objects，普通的Java对象）映射成数据库中的记录。 
+        MyBatis是对JDBC的封装。
+        
+    相对于JDBC，MyBatis有以下优点：
+    1. 优化获取和释放
+    
+            我们一般在访问数据库时都是通过数据库连接池来操作数据库，数据库连接池有好几种，
+            比如C3P0、DBCP，也可能采用容器本身的JNDI数据库连接池。我们可以通过DataSource
+            进行隔离解耦，我们统一从DataSource里面获取数据库连接，DataSource具体由DBCP实
+            现还是由容器的JNDI实现都可以，所以我们将DataSource的具体实现通过让用户配置来应
+            对变化。
+            
+     2. SQL统一管理，对数据库进行存取操作
+     
+             我们使用JDBC对数据库进行操作时，SQL查询语句分布在各个Java类中，这样可读性差，不利
+             于维护，当我们修改Java类中的SQL语句时要重新进行编译。Mybatis可以把SQL语句放在配置
+             文件中统一进行管理，以后修改配置文件，也不需要重新就行编译部署。
+     
+     3. 生成动态SQL语句
+     
+             我们在查询中可能需要根据一些属性进行组合查询，比如我们进行商品查询，我们可以根据商品名称进
+             行查询，也可以根据发货地进行查询，或者两者组合查询。如果使用JDBC进行查询，这样就需要写多条
+             SQL语句。 Mybatis可以在配置文件中通过使用<if test=””></if>标签进行SQL语句的拼接，生成动
+             态SQL语句。     
+               
+      4. 能够对结果集进行映射
+      
+              我们在使用JDBC进行查询时，返回一个结果集ResultSet,我们要从结果集中取出结果封装为需要的类型
+              在Mybatis中我们可以设置将结果直接映射为自己需要的类型，比如：JavaBean对象、一个Map、一个List
+              等等。像上个例子中就是将结果映射为int类型。         
+8. String、StringBuffer和StringBuilder的区别
+
+    String 类型和StringBuffer的主要性能区别：String是不可变的对象（immutable）,用于存放
+    字符的数组被声明为final的，因此只能赋值一次，不可再更改。 因此在每次对String 
+    类型进行改变的时候，都会生成一个新的 String 对象，然后将指针指向新的 String 对象，
+    所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响，
+    特别当内存中无引用对象多了以后， JVM 的 GC 就会开始工作，性能就会降低。
+    使用 StringBuffer 类时，每次都会对 StringBuffer 对象本身进行操作，而不是生成新的对
+    象并改变对象引用。所以多数情况下推荐使用 StringBuffer ，特别是字符串对象经常改变的
+    情况下。在某些特别情况下， String 对象的字符串拼接其实是被 Java Compiler 编译成了
+     StringBuffer 对象的拼接，所以这些时候 String 对象的速度并不会比 StringBuffer 
+     对象慢。**StringBuilder：字符串变量（非线程安全）。StringBuffer：字符串变量（Sy
+     nchronized，即线程安全）**
+     
+9. servlet是单例多线程，以及多线程下如何保证线程安全
+
+    1、servlet是单例的，严格地说是一个**ServletMapping**对应一个单例实例(如果一个Servlet被映射了两个URL地址，会生成两个实例)。
+    早期的CGI模式是原型式的，例如同时并发2000次请求一个Servlet，如果不是单例的，内存瞬间要创建2000个对象，同时为了线程安全
+    还得阻塞对方线程，其性能非常之差。
+    
+    2、要维护Servlet线程安全有很多办法，通常是使用**同步块(或方法)来保护共享数据**，其次可以**volatile、Lock一些锁机制**，
+    还可以使用**ThreadLocal来打通安全通道**，另外还有**原子操作**也是用来保护数据安全，有非常多的选择。
