@@ -23,4 +23,5 @@ package Pinduoduo;
  7
  */
 public class pinduoduo4 {
+
 }
