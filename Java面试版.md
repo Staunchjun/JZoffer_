@@ -55,8 +55,7 @@
                         Object returnValue = method.invoke(subject, args);  
                   
                         //在代理真实对象后我们也可以添加一些自己的操作  
-                        System.out.println("在调用之后，我要干点啥呢？");  
-                  
+                        System.out.println("在调用之后，我要干点啥呢？");                   
                         return returnValue;  
                     }  
                 }   
@@ -296,7 +295,7 @@
      
              我们在查询中可能需要根据一些属性进行组合查询，比如我们进行商品查询，我们可以根据商品名称进
              行查询，也可以根据发货地进行查询，或者两者组合查询。如果使用JDBC进行查询，这样就需要写多条
-             SQL语句。 Mybatis可以在配置文件中通过使用<if test=””></if>标签进行SQL语句的拼接，生成动
+             SQL语句。 Mybatis可以在配置文件中通过使用<if sms.test=””></if>标签进行SQL语句的拼接，生成动
              态SQL语句。     
                
       4. 能够对结果集进行映射
