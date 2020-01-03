@@ -1,0 +1,5 @@
+# ignore idea dir when use idea ide
+/.idea
+/.idea/*
+# ignore the gitignore
+.gitignore
