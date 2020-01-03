@@ -3,3 +3,5 @@
 /.idea/*
 # ignore the gitignore
 .gitignore
+# ignore out dir
+/out
