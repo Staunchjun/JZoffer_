@@ -1,16 +1,15 @@
 package leetcode;
 
-class TreeNode {
-    private final int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-    }
-}
-
 public class LeetCode111 {
+    class TreeNode {
+        private final int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
     private int min = Integer.MAX_VALUE;
 
     public static void main(String[] args) {

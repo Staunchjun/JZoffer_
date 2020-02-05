@@ -1,12 +1,10 @@
 package leetcode;
-
-interface MountainArray {
-    public int get(int index);
-
-    public int length();
-}
-
 public class LeetCode1095 {
+    interface MountainArray {
+        public int get(int index);
+
+        public int length();
+    }
     public int findInMountainArray(int target, MountainArray mountainArr) {
 
         int peak = findPeakIndex(mountainArr);
