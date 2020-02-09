@@ -2,38 +2,22 @@ package leetcode;
 
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 
-public class LeetCode51 {
-    List<List<String>> res;
+public class LeetCode52 {
+    private int count = 0;
 
-    private static List<String> charToString(char[][] array) {
-        List<String> result = new LinkedList<>();
-        for (char[] chars : array) {
-            result.add(String.valueOf(chars));
+    public int totalNQueens(int n) {
+        if (n <= 0) {
+            return count;
         }
-        return result;
-    }
-
-    public List<List<String>> solveNQueens(int n) {
-        if (n <= 0) return null;
-        res = new LinkedList<>();
         char[][] board = new char[n][n];
         for (char[] chars : board) {
             Arrays.fill(chars, '.');
         }
         backtrack(board, 0);
-        return res;
+        return count;
     }
 
-    /**
-     * 剪枝
-     *
-     * @param board
-     * @param row
-     * @param col
-     * @return
-     */
     private boolean isValid(char[][] board, int row, int col) {
         int rows = board.length;
         // check is valid in col
@@ -54,7 +38,7 @@ public class LeetCode51 {
          * 结束条件
          */
         if (row == board.length) {
-            res.add(charToString(board));
+            count++;
             return;
         }
         /**

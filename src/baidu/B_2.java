@@ -55,31 +55,30 @@ public class B_2 {
         }
         System.out.print(sum1 - max + space1 - sum2 + space2);
     }
-}
-
-class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        if (N > 50 || N < 0) {
-            return;
-        }
-        int[] PRICES = new int[N];
-        for (int i = 0; i < N; i++) {
-            PRICES[i] = sc.nextInt();
-            if (Math.abs(PRICES[i]) > 100)
+    static class Main {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            int N = sc.nextInt();
+            if (N > 50 || N < 0) {
                 return;
+            }
+            int[] PRICES = new int[N];
+            for (int i = 0; i < N; i++) {
+                PRICES[i] = sc.nextInt();
+                if (Math.abs(PRICES[i]) > 100)
+                    return;
+            }
+            int SUM_DISTANCE = 0;
+            for (int i = 0; i < N - 1; i++) {
+                SUM_DISTANCE += Math.abs(PRICES[i + 1] - PRICES[i]);
+            }
+            int MAX_ABLE_DEL_DISTANCE = Integer.MIN_VALUE;
+            for (int i = 1; i <= N - 2; i++) {
+                int ABLE_DEL_DISTANCE = Math.abs(Math.abs(PRICES[i] - PRICES[i - 1]) + Math.abs(PRICES[i + 1] - PRICES[i]) - Math.abs(PRICES[i + 1] - PRICES[i - 1]));
+                if (ABLE_DEL_DISTANCE > MAX_ABLE_DEL_DISTANCE)
+                    MAX_ABLE_DEL_DISTANCE = ABLE_DEL_DISTANCE;
+            }
+            System.out.print(SUM_DISTANCE - MAX_ABLE_DEL_DISTANCE);
         }
-        int SUM_DISTANCE = 0;
-        for (int i = 0; i < N - 1; i++) {
-            SUM_DISTANCE += Math.abs(PRICES[i + 1] - PRICES[i]);
-        }
-        int MAX_ABLE_DEL_DISTANCE = Integer.MIN_VALUE;
-        for (int i = 1; i <= N - 2; i++) {
-            int ABLE_DEL_DISTANCE = Math.abs(Math.abs(PRICES[i] - PRICES[i - 1]) + Math.abs(PRICES[i + 1] - PRICES[i]) - Math.abs(PRICES[i + 1] - PRICES[i - 1]));
-            if (ABLE_DEL_DISTANCE > MAX_ABLE_DEL_DISTANCE)
-                MAX_ABLE_DEL_DISTANCE = ABLE_DEL_DISTANCE;
-        }
-        System.out.print(SUM_DISTANCE - MAX_ABLE_DEL_DISTANCE);
     }
 }
