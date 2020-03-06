@@ -13,12 +13,12 @@ public class LeetCode791 {
         for (int i = 0; i < S.length(); i++) {
             char sTemp = S.charAt(i);
             if (map.containsKey(sTemp)) {
-                finalStr.append(String.valueOf(sTemp).repeat(Math.max(0, map.get(sTemp))));
+//                finalStr.append(String.valueOf(sTemp).repeat(Math.max(0, map.get(sTemp))));
                 map.remove(sTemp);
             }
         }
         for (Map.Entry<Character, Integer> e : map.entrySet()) {
-            finalStr.append(String.valueOf(e.getKey()).repeat(Math.max(0, e.getValue())));
+//            finalStr.append(String.valueOf(e.getKey()).repeat(Math.max(0, e.getValue())));
         }
         return finalStr.toString();
     }
