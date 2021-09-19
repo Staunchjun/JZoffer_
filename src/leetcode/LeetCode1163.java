@@ -1,8 +1,7 @@
 package leetcode;
 
-import javafx.print.Collation;
-
-import java.util.*;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 public class LeetCode1163 {
     /**

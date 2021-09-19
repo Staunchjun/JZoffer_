@@ -15,12 +15,12 @@ web内容存储在web服务器上，而web服务器使用的是http协议
 4. 隧道（对Http通信报文进行盲转发的特殊代理）
 5. Agent代理（发起自动Http请求的半智能Web客户端）
 ### URL结构
-url的三部分：`http://www.baidu.com/ss/index.html`
+url的三部分：`http://www.company.baidu.com/ss/index.html`
 默认方案
 **<scheme>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>**
 默认为80端口
 1. http->方案（怎么做）
-2. `www.baidu.com`->主机（位于何处，使用DNS解析成ip地址的形式）
+2. `www.company.baidu.com`->主机（位于何处，使用DNS解析成ip地址的形式）
 3. /ss/index.html->路径（哪个资源）
 # HTTP报文是HTTP应用程序间发送的数据块。
 1. 起始行{请求行（请求方法+请求URL）响应行（HTTP版本+状态码+描述操作状态的文本形式的原因语）
